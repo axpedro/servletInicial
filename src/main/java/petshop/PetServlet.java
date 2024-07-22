@@ -9,19 +9,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet
+@WebServlet("/PetServlet")
 public class PetServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 	throws ServletException, IOException{
 		String titulo = req.getParameter("titulo");
-		String peso = req.getParameter("peso");
-		String altura = req.getParameter("altura");
+	
 		PrintWriter writer = resp.getWriter();
 		writer.print("Titulo:"+ titulo);
-		writer.print("peso:"+ peso);
-		writer.print("altura:"+ altura);
+		
 		writer.close();
 	}
 	
@@ -31,11 +29,30 @@ public class PetServlet extends HttpServlet {
 	throws ServletException, IOException{
 		
 		PrintWriter writer = resp.getWriter();
-		writer.print("Deu certo");
+		writer.print("Post ok");
 		writer.close();
 		
 	}
 	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp)
+	throws ServletException, IOException{
+		
+		PrintWriter writer = resp.getWriter();
+		writer.print("Put ok");
+		writer.close();
+		
+	}
+	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
+	throws ServletException, IOException{
+		
+		PrintWriter writer = resp.getWriter();
+		writer.print("Delete Ok");
+		writer.close();
+		
+	}
 	
 	}
 	
